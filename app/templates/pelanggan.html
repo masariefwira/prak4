@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pelanggan</title>
+</head>
+<body>
+    <h1>Pelanggan</h1>
+    <table>
+        <tr>
+            <th>Nama</th>
+            <th>jenis kelamin</th>
+            <th>tanggal lahir</th>
+            <th>no hp</th>
+            <th>Action</th>
+        </tr>
+        <!-- ini yang bagian all -->
+        {% for item in allpelangganobj %}
+        <tr>
+            <td>{{ item.nama }}</td>
+            <td>{{ item.jeniskelamin }}</td>
+            <td>{{ item.tanggallahir }}</td>
+            <td>{{ item.nohp }}</td>
+            <td>
+                <!-- ini gausah ditulis dulu -->
+                <a href="{% url 'updatedata' item.idpelanggan %}">Update Data</a> 
+                <a href="{% url 'deletedata' item.idpelanggan %}">Delete Data</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <!-- ini yang bagian get -->
+    <h1>Get pelanggan </h1>
+    <table>
+        <tr>
+            <th>Nama</th>
+            <th>jenis kelamin</th>
+            <th>tanggal lahir</th>
+            <th>no hp</th>
+        </tr>
+        <tr>
+            <td>{{ getpelangganobj.nama }}</td>
+            <td>{{ getpelangganobj.jeniskelamin }}</td>
+            <td>{{ getpelangganobj.tanggallahir }}</td>
+            <td>{{ getpelangganobj.nohp }}</td>
+        </tr>
+    </table>
+
+    <!-- ini bagian filter -->
+    <h1>Filter Pelanggan</h1>
+    <table>
+        <tr>
+            <th>Nama</th>
+            <th>jenis kelamin</th>
+            <th>tanggal lahir</th>
+            <th>no hp</th>
+        </tr>
+        {% for item in filterpelangganobj %}
+        <tr>
+            <td>{{ item.nama }}</td>
+            <td>{{ item.jeniskelamin }}</td>
+            <td>{{ item.tanggallahir }}</td>
+            <td>{{ item.nohp }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+</body>
+</html>
