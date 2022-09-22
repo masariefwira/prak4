@@ -20,15 +20,21 @@
             <tr>
                 <th>Tanggal lahir</th>
                 <td>
-                    <input type="date" name="tanggal">
+                    <input type="date" name="tanggal" value="{{tanggal}}">
                 </td>
             </tr>
             <tr>
                 <th>Jenis kelamin</th>
                 <td>
+                    
                     <select name="jeniskelamin" id="">
-                        <option value="Perempuan">Perempuan</option>
+                        {% if pelangganobj.jeniskelamin == 'Perempuan' %}
+                        <option selected  value="Perempuan">Perempuan</option>
                         <option value="Laki-laki">Laki-laki</option>
+                        {% else %}
+                        <option value="Perempuan">Perempuan</option>
+                        <option selected value="Laki-laki">Laki-laki</option>
+                        {% endif %}
                     </select>
                 </td>
             </tr>

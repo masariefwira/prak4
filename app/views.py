@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.shortcuts import render,redirect
 from . import models
 
@@ -12,7 +13,7 @@ from . import models
 '9. nambah url.py create data'
 '10. runserver, jelasin nambah dan liat in berubahnya'
 '11. bikin views update data'
-'12. bikin updatedata.html'
+'12. buka dan jelaskan updatedata.html'
 '13. nambah url.py update data'
 '14. runserver, jelasin'
 '15. bikin views deletedata'
@@ -54,9 +55,12 @@ def createdata(request):
 
 def updatedata(request,id):
     pelangganobj = models.pelanggan.objects.get(idpelanggan=id)
+    tanggal = datetime.strftime(pelangganobj.tanggallahir, '%Y-%m-%d')
     if request.method == 'GET':
         return render(request,'updatedata.html',{
-            'pelangganobj':pelangganobj
+            'pelangganobj':pelangganobj,
+            'tanggal' :tanggal
+
         })
     else:
         nama = request.POST['nama']
